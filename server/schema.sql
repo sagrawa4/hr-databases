@@ -4,11 +4,11 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  m_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   message VARCHAR(100) NOT NULL,
   room_name VARCHAR(20) NOT NULL,
-  user VARCHAR(20) NOT NULL,
-  PRIMARY KEY (m_id)
+  u_id INT NOT NULL,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE users (
@@ -17,20 +17,13 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+-- INSERT into users (user_name) values ('shruti');
+-- INSERT into users (user_name) values ('soo');
+-- INSERT into users (user_name) values ('sam');
 
-CREATE TABLE user_message (
-  SELECT users.user_name, messages.message
-  FROM users INNER JOIN messages
-  ON users.user_name = messages.user
-);
-
-INSERT into users (user_name) values ('shruti');
-INSERT into users (user_name) values ('soo');
-INSERT into users (user_name) values ('sam');
-
-INSERT into messages (message, room_name, user) values ('hello','Living room', 'shruti');
-INSERT into messages (message, room_name, user) values ('okay','Living room', 'shruti');
-INSERT into messages (message, room_name, user) values ('eating','Rest room', 'soo');
+-- INSERT into messages (message, room_name, u_id) values ('hello','Living room', 'SELECT id FROM users WHERE user_name = "shruti"');
+-- INSERT into messages (message, room_name, user) values ('okay','Living room', 'SELECT id FROM users WHERE user_name = shruti"');
+-- INSERT into messages (message, room_name, user) values ('eating','Rest room', 'SELECT id FROM users WHERE user_name = soo"');
 
 /* Create other tables and define schemas for them here! */
 
