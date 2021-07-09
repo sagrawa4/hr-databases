@@ -4,7 +4,7 @@ var db = require('../db/index.js');
 
 module.exports = {
   getAll: function (callback) {
-    var queryString = 'SELECT message FROM messages'; //mysql command
+    var queryString = 'SELECT * FROM messages'; //mysql command
     db.query(queryString, (error, result) => {
       if (error) {
         callback(error);
