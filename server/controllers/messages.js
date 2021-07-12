@@ -6,7 +6,6 @@ module.exports = {
       if (err) {
         res.sendStatus(404);
       } else {
-        console.log('this is the data in get', data);
         res.send(data);
       }
     });

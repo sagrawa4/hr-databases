@@ -83,7 +83,7 @@ describe('Persistent Node Chat Server', function() {
           roomname: 'main'
         });
       })
-      .then( () => {
+      .then(() => {
         var queryString = 'SELECT * FROM messages';
         var queryArgs = [];
         // TODO - The exact query string and query args to use
@@ -97,8 +97,8 @@ describe('Persistent Node Chat Server', function() {
           axios.get('http://127.0.0.1:3000/classes/messages')
             .then(function (response) {
               var messageLog = response.data;
-              expect(messageLog[0].text).to.equal('Men like you can never change!');
-              expect(messageLog[0].roomname).to.equal('main');
+              expect(messageLog[0].message).to.equal('Men like you can never change!');
+              expect(messageLog[0].room_name).to.equal('main');
               done();
             });
         });
